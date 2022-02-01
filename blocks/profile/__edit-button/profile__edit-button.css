@@ -1,0 +1,21 @@
+.profile__edit-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  bottom: 8px;
+  right: -43px;
+  background: transparent;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.profile__edit-button::before {
+  content: '';
+  background-image: url(../../../images/edit.svg);
+  background-size: cover;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+}
