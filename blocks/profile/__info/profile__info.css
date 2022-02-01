@@ -1,9 +1,17 @@
 .profile__info {
-  flex-shrink: 1;
-  display: flex;
-  flex-direction: column;
-  margin-right: 60px;
-  position: relative;
-  max-width: 520px;
-  width: calc(100% - 150px - 123px - 25px);
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  grid-template-areas: 'name edit-button' 'speciality speciality';
+  width: 100%;
+  gap: 8px 18px;
+  grid-area: info;
+}
+
+@media screen and (max-width: 600px) {
+  .profile__info {
+    gap: 7px 0;
+    grid-template-columns: auto minmax(10px, auto);
+    margin: 28.25px auto 34px;
+    position: relative;
+  }
 }

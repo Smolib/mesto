@@ -1,8 +1,21 @@
 .profile {
   margin-top: 37px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 120px minmax(150px, auto) minmax(150px, 2fr);
   max-width: 880px;
   width: 100%;
+  gap: 30px;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas: "avatar info add-button";
+  position: relative;
+}
+
+
+@media screen and (max-width: 600px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
 }
