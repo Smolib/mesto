@@ -1,0 +1,4 @@
+.location__button_active.location__button::before {
+  content: '';
+  background-image: url(../../../../images/heart_active.svg);
+}
