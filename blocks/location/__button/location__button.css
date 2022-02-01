@@ -12,7 +12,10 @@
   background-image: url(../../../images/heart.svg);
   background-size: cover;
   position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   margin: auto;
   height: 19px;
   width: 22px;

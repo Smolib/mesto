@@ -13,11 +13,14 @@
 }
 
 .profile__add-button::before {
-  content: '';
+  content: "";
   background-image: url(../../../images/add.svg);
   background-size: cover;
   position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   margin: auto;
   height: 22px;
   width: 22px;

@@ -1,7 +1,7 @@
 .profile__info {
   display: grid;
   grid-template-columns: 1fr 24px;
-  grid-template-areas: 'name edit-button' 'speciality speciality';
+  grid-template-areas: "name edit-button" "speciality speciality";
   width: 100%;
   gap: 8px 18px;
   grid-area: info;
