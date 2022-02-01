@@ -13,8 +13,8 @@
           <label class="popup__label">Редактировать профиль</label>
           <input type="text" class="popup__text-form" name="name" placeholder="Имя">
           <input type="text" class="popup__text-form" name="speciality" placeholder="Призвание">
-          <button class="popup__save-button">Сохранить</button>
-          <button class="popup__close-button"></button>
+          <button type="submit" class="popup__save-button">Сохранить</button>
+          <button type="button" class="popup__close-button"></button>
         </form>
       </section>
       <header class="header">
@@ -25,13 +25,11 @@
         <section class="profile">
           <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар путешественника">
           <div class="profile__info">
-            <h1 class="profile__name">
-              Жак-Ив Кусто
-            </h1>
-            <button class="profile__edit-button"></button>
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button"></button>
             <p class="profile__speciality">Исследователь океана</p>
           </div>
-          <button class="profile__add-button"></button>
+          <button type="button" class="profile__add-button"></button>
         </section>
         <section class="locations">
           <article class="location">
@@ -82,6 +80,6 @@
         </footer>
       </main>
     </div>
-    <script src="./scripts/scripts.js" type="text/javascript"></script>
+    <script src="./scripts/index.js" type="text/javascript"></script>
   </body>
 </html>
