@@ -19,3 +19,5 @@
 @import url(../blocks/location/__name/location__name.css);
 @import url(../blocks/location/__button/location__button.css);
 @import url(../blocks/location/__button/_active/location__button_active.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__text/footer__text.css);
