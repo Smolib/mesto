@@ -22,11 +22,11 @@ function closePopup() {
 
 closeButton.addEventListener('click', closePopup);
 
-function saveValue(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   nameText.textContent = nameInput.value;
   specialityText.textContent = specialityInput.value;
   closePopup();
 }
 
-popupForm.addEventListener('submit', saveValue);
+popupForm.addEventListener('submit', handleProfileFormSubmit);

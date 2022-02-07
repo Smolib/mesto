@@ -6,17 +6,17 @@
     <title>Проект Mesto</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
-  <body>
+  <body class="root">
+    <section class="popup">
+      <form class="popup__container">
+        <label class="popup__label">Редактировать профиль</label>
+        <input type="text" class="popup__text-form" name="name" placeholder="Имя">
+        <input type="text" class="popup__text-form" name="speciality" placeholder="Призвание">
+        <button type="submit" class="popup__save-button">Сохранить</button>
+        <button type="button" class="popup__close-button"></button>
+      </form>
+    </section>
     <div class="page">
-      <section class="popup">
-        <form class="popup__container">
-          <label class="popup__label">Редактировать профиль</label>
-          <input type="text" class="popup__text-form" name="name" placeholder="Имя">
-          <input type="text" class="popup__text-form" name="speciality" placeholder="Призвание">
-          <button type="submit" class="popup__save-button">Сохранить</button>
-          <button type="button" class="popup__close-button"></button>
-        </form>
-      </section>
       <header class="header">
         <div class="header__logo"></div>
         <hr class="header__line">
