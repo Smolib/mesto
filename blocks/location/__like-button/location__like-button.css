@@ -1,4 +1,4 @@
-.location__button {
+.location__like-button {
   width: 22px;
   height: 19px;
   background: transparent;
@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.location__button::before {
+.location__like-button::before {
   content: '';
   background-image: url(../../../images/heart.svg);
   background-size: cover;
@@ -21,6 +21,6 @@
   width: 22px;
 }
 
-.location__button:hover.location__button::before {
+.location__like-button:hover.location__like-button::before {
   opacity: 0.5;
 }
