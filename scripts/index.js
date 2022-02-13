@@ -110,3 +110,18 @@ const handleAddCardSubmit = (evt) => {
 }
 
 popupAddCard.addEventListener('submit', handleAddCardSubmit);
+
+// открыть большое изображение
+const popupBigImage = document.querySelector('#popup-big-image');
+const bigImage = document.querySelector('.popup-big-image__image');
+const textImage = document.querySelector('.popup-big-image__text');
+const images = document.querySelectorAll('.location__image');
+
+const handleImageClick = (evt) => {
+  showPopup(popupBigImage);
+  textImage.textContent = evt.target.alt;
+  bigImage.src = evt.target.src;
+  bigImage.alt = evt.target.alt;
+}
+
+images.forEach((image) => image.addEventListener('click', handleImageClick));

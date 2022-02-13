@@ -1,4 +1,4 @@
-.popup__text-form {
+.popup-form__text-form {
   padding: 13px 0;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -9,7 +9,7 @@
   padding-left: 2px;
 }
 
-.popup__text-form::placeholder {
+.popup-form__text-form::placeholder {
   color: #000;
   font-size: 14px;
   line-height: 1.21;

@@ -1,4 +1,4 @@
-.popup__label {
+.popup-form__label {
   font-size: 24px;
   font-weight: 900;
   line-height: 1.21;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 700px) {
-  .popup__label {
+  .popup-form__label {
     font-size: 18px;
     margin-bottom: 50px;
   }

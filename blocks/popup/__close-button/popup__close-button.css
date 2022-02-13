@@ -3,7 +3,7 @@
   cursor: pointer;
   background: transparent;
   top: -40px;
-  right: -40px;
+  right: -20px;
   height: 32px;
   width: 32px;
   border: none;
@@ -31,7 +31,7 @@
   .popup__close-button {
     width: 20px;
     height: 20px;
-    right: 0;
-    top: -36px;
+    right: 36px;
+    top: -18px;
   }
 }

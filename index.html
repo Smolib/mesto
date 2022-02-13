@@ -8,22 +8,35 @@
   </head>
   <body class="root">
     <section id="popup-edit-profile" class="popup popup_closed">
-      <form class="popup__container">
-        <label class="popup__label">Редактировать профиль</label>
-        <input type="text" class="popup__text-form" name="name" placeholder="Имя">
-        <input type="text" class="popup__text-form" name="speciality" placeholder="Призвание">
-        <button type="submit" class="popup__save-button">Сохранить</button>
+      <div class="popup__container">
+        <form class="popup-form">
+          <label class="popup-form__label">Редактировать профиль</label>
+          <input type="text" class="popup-form__text-form" name="name" placeholder="Имя">
+          <input type="text" class="popup-form__text-form" name="speciality" placeholder="Призвание">
+          <button type="submit" class="popup-form__save-button">Сохранить</button>
+        </form>
         <button type="button" class="popup__close-button"></button>
-      </form>
+      </div>
     </section>
-    <section id="popup-add-card" class="popup popup_closed">
-      <form class="popup__container">
-        <label class="popup__label">Новое место</label>
-        <input type="text" class="popup__text-form" name="image-title" placeholder="Название">
-        <input type="text" class="popup__text-form" name="image-link" placeholder="Ссылка на картинку">
-        <button type="submit" class="popup__save-button">Создать</button>
+    <section  id="popup-add-card" class="popup popup_closed">
+      <div class="popup__container">
+        <form class="popup-form">
+          <label class="popup-form__label">Новое место</label>
+          <input type="text" class="popup-form__text-form" name="image-title" placeholder="Название">
+          <input type="text" class="popup-form__text-form" name="image-link" placeholder="Ссылка на картинку">
+          <button type="submit" class="popup-form__save-button">Создать</button>
+        </form>
         <button type="button" class="popup__close-button"></button>
-      </form>
+      </div>
+    </section>
+    <section id="popup-big-image" class="popup popup_closed popup_overlay_dark ">
+      <div class="popup__container">
+        <figure class="popup-big-image">
+          <img class="popup-big-image__image" src="images/dombay.jpg">
+          <figcaption class="popup-big-image__text">123</figcaption>
+        </figure>
+        <button type="button" class="popup__close-button"></button>
+      </div>
     </section>
     <div class="page">
       <header class="header">
