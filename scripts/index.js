@@ -1,3 +1,16 @@
+// валидация
+enableValidation({
+  formSelector: ".popup-form",
+  inputSelector: ".popup-form__text-form",
+  submitButtonSelector: ".popup-form__save-button",
+  activeButtonClass: "popup-form__save-button_active",
+  inputErrorClass: "popup-form__text-form_error",
+  errorClass: "popup-form__error-message_active",
+});
+
+// константа - список popup-ов
+const popupsList = document.querySelectorAll(".popup");
+
 // константы редактирования profile
 const editButton = document.querySelector(".profile__edit-button");
 const popupEditProfile = document.querySelector("#popup-edit-profile");
@@ -28,12 +41,11 @@ const showPopupEditProfile = () => {
   showPopup(popupEditProfile);
   nameInput.value = nameText.textContent;
   specialityInput.value = specialityText.textContent;
+  popupEditProfile.querySelector(".popup-form").updateValidity();
 };
 
 const showPopupAddCard = () => {
   showPopup(popupAddCard);
-  imageTitleInput.value = "";
-  imageLinkInput.value = "";
 };
 
 editButton.addEventListener("click", showPopupEditProfile);
@@ -42,12 +54,29 @@ addButton.addEventListener("click", showPopupAddCard);
 // закрытие popup-ов
 const closePopup = (popupName) => popupName.classList.remove("popup_opened");
 
+const closePopupByClick = (evt) => {
+  if (evt.target.classList.contains("popup")) {
+    closePopup(evt.target);
+  }
+};
+
+popupsList.forEach((popup) => {
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      closePopup(popup);
+    }
+  });
+});
+
 popupCloseButtons.forEach((button) =>
   button.addEventListener(
     "click",
     closePopup.bind(undefined, button.closest(".popup"))
   )
 );
+
+popupEditProfile.addEventListener("click", closePopupByClick);
+popupAddCard.addEventListener("click", closePopupByClick);
 
 // редактирование профиля
 const handleProfileFormSubmit = (evt) => {
@@ -127,7 +156,6 @@ const addCard = (name, link) => {
 // добавление начальных карточек
 
 initialCards.forEach((item) => {
-  console.log(item.name, item.link);
   addCard(item.name, item.link);
 });
 
@@ -136,6 +164,8 @@ const handleAddCardSubmit = (evt) => {
   evt.preventDefault();
   addCard(imageTitleInput.value, imageLinkInput.value);
   closePopup(popupAddCard);
+  imageTitleInput.value = "";
+  imageLinkInput.value = "";
 };
 
 popupAddCard.addEventListener("submit", handleAddCardSubmit);

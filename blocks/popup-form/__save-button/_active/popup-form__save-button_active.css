@@ -1,0 +1,9 @@
+.popup-form__save-button_active {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.popup-form__save-button_active:hover {
+  opacity: 0.8;
+}
