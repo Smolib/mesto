@@ -9,7 +9,7 @@
   <body class="root">
     <section id="popup-edit-profile" class="popup popup_closed">
       <div class="popup__container">
-        <form class="popup-form" novalidate>
+        <form class="popup-form" name="profile-form" novalidate>
           <h2 class="popup-form__title">Редактировать профиль</h2>
           <input type="text" class="popup-form__text-form" name="name" placeholder="Имя" minlength="2" maxlength="40" required>
           <span class="popup-form__error-message" id="name-error"></span>
@@ -22,7 +22,7 @@
     </section>
     <section  id="popup-add-card" class="popup popup_closed">
       <div class="popup__container">
-        <form class="popup-form" novalidate>
+        <form class="popup-form" name="card-form" novalidate>
           <h2 class="popup-form__title">Новое место</h2>
           <input type="text" class="popup-form__text-form" name="image-title" placeholder="Название"  minlength="2" maxlength="30" required>
           <span class="popup-form__error-message" id="image-title-error"></span>

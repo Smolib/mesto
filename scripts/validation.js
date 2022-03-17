@@ -54,7 +54,7 @@ const setEventListeners = (formElement, args) => {
 
   formElement.updateValidity = () => {
     inputList.forEach((inputElement) =>
-      checkValidity(formElement, inputElement, args)
+      hideError(formElement, inputElement, args)
     );
     toggleButtonState(inputList, buttonElement, args);
   };
