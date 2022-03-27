@@ -1,3 +1,5 @@
+import { openPopupImage } from "./index.js";
+
 class Card {
   constructor(name, link, selector) {
     this._name = name;
@@ -7,7 +9,6 @@ class Card {
   }
 
   _getTemplate(selector) {
-    selector = `#${selector}`;
     return document
       .querySelector(selector)
       .content.querySelector(".location")
@@ -21,20 +22,12 @@ class Card {
   }
 
   _handleImageClick() {
-    const popupBigImage = document.querySelector("#popup-big-image");
-    const bigImage = document.querySelector(".popup-big-image__image");
-    const textImage = document.querySelector(".popup-big-image__text");
+    openPopupImage(this);
+  }
 
-    popupBigImage.classList.add("popup_opened");
-    document.addEventListener("keydown", (evt) => {
-      if (evt.key === "Escape") {
-        const openedPopup = document.querySelector(".popup_opened");
-        closePopup(openedPopup);
-      }
-    });
-    textImage.textContent = this._name;
-    bigImage.src = this._link;
-    bigImage.alt = this._name;
+  _handleTrashButton() {
+    this._element.remove();
+    this._element = null;
   }
 
   _setEventListeners() {
@@ -51,7 +44,7 @@ class Card {
     this._element
       .querySelector(".location__trash-button")
       .addEventListener("click", () => {
-        this._element.remove();
+        this._handleTrashButton();
       });
   }
 

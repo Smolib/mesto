@@ -1,14 +1,17 @@
-import { Card } from "./card.js";
+import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { initialCards } from "./initialCards.js";
+import { argsValidation } from "./argsValidation.js";
 
-// константа списка попапов
+// константы попапов
 const popups = document.querySelectorAll(".popup");
+let openedPopup;
 
 // константы редактирования profile
 const editButton = document.querySelector(".profile__edit-button");
 const popupEditProfile = document.querySelector("#popup-edit-profile");
 const profileForm = popupEditProfile.querySelector(".popup-form");
-const nameInput = popupEditProfile.querySelector('input[name="name"]');
+const nameInput = popupEditProfile.querySelector("input[name='name']");
 const nameText = document.querySelector(".profile__name");
 const specialityInput = popupEditProfile.querySelector(
   'input[name="speciality"]'
@@ -27,10 +30,16 @@ const addCardForm = popupAddCard.querySelector(".popup-form");
 const imageTitleInput = popupAddCard.querySelector('input[name="image-title"]');
 const imageLinkInput = popupAddCard.querySelector('input[name="image-link"]');
 
+// константы большого изображения
+const popupBigImage = document.querySelector("#popup-big-image");
+const bigImage = document.querySelector(".popup-big-image__image");
+const textImage = document.querySelector(".popup-big-image__text");
+
 // отображение popup-ов
 const showPopup = (popupName) => {
   popupName.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupByEscape);
+  openedPopup = popupName;
 };
 
 const showPopupEditProfile = () => {
@@ -56,17 +65,17 @@ const closePopup = (popupName) => {
 
 const closePopupByEscape = (evt) => {
   if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
+    if (openedPopup) closePopup(openedPopup);
+    openedPopup = null;
   }
 };
 
 popups.forEach((popup) => {
   popup.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("popup_opened")) {
-      closePopup(popup);
-    }
-    if (evt.target.classList.contains("popup__close-button")) {
+    if (
+      evt.target.classList.contains("popup_opened") ||
+      evt.target.classList.contains("popup__close-button")
+    ) {
       closePopup(popup);
     }
   });
@@ -82,50 +91,19 @@ const handleProfileFormSubmit = (evt) => {
 
 popupEditProfile.addEventListener("submit", handleProfileFormSubmit);
 
-// массив начальных карточек
-const initialCards = [
-  {
-    name: "Карачаево-Черкесск",
-    link: "./images/karachaevsk.jpg",
-  },
-  {
-    name: "Гора Эльбрус",
-    link: "./images/elbrus.jpg",
-  },
-  {
-    name: "Домбай",
-    link: "./images/dombay.jpg",
-  },
-  {
-    name: "Уральские горы",
-    link: "./images/ural.jpg",
-  },
-  {
-    name: "Ключевская сопка",
-    link: "./images/kluchevskoi.jpg",
-  },
-  {
-    name: "Коштантау",
-    link: "./images/koshtantau.jpg",
-  },
-];
-
 // открыть большое изображение
-const popupBigImage = document.querySelector("#popup-big-image");
-const bigImage = document.querySelector(".popup-big-image__image");
-const textImage = document.querySelector(".popup-big-image__text");
 
-const handleImageClick = (card) => {
+const openPopupImage = (card) => {
   showPopup(popupBigImage);
-  textImage.textContent = card.title;
-  bigImage.src = card.link;
-  bigImage.alt = card.title;
+  textImage.textContent = card._title;
+  bigImage.src = card._link;
+  bigImage.alt = card._title;
 };
 
 // добавление начальных карточек
 
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, "location");
+  const card = new Card(item.name, item.link, "#location");
 
   locations.append(card.generateCard());
 });
@@ -133,7 +111,7 @@ initialCards.forEach((item) => {
 // создание новых карточек
 
 const addCard = (name, link) => {
-  const card = new Card(name, link, "location");
+  const card = new Card(name, link, "#location");
   locations.prepend(card.generateCard());
 };
 
@@ -146,19 +124,9 @@ const handleAddCardSubmit = (evt) => {
 
 popupAddCard.addEventListener("submit", handleAddCardSubmit);
 
-// настройка валидации
-const argsValidation = {
-  formSelector: ".popup-form",
-  inputSelector: ".popup-form__text-form",
-  submitButtonSelector: ".popup-form__save-button",
-  activeButtonClass: "popup-form__save-button_active",
-  inputErrorClass: "popup-form__text-form_error",
-  errorClass: "popup-form__error-message_active",
-};
-
 // валидация форм
 
-const enableValidation = (args) => {
+const setValidators = (args) => {
   const formList = Array.from(document.querySelectorAll(args.formSelector));
   formList.forEach((formElement) => {
     const validator = new FormValidator(args, formElement);
@@ -166,4 +134,6 @@ const enableValidation = (args) => {
   });
 };
 
-enableValidation(argsValidation);
+setValidators(argsValidation);
+
+export { openPopupImage };
