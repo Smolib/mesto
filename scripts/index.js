@@ -1,3 +1,6 @@
+import {Card} from './card.js';
+// import {qwer} from './FormValidator.js';
+
 // валидация
 enableValidation({
   formSelector: ".popup-form",
@@ -9,12 +12,12 @@ enableValidation({
 });
 
 // константа списка попапов
-const popups = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll(".popup");
 
 // константы редактирования profile
 const editButton = document.querySelector(".profile__edit-button");
 const popupEditProfile = document.querySelector("#popup-edit-profile");
-const profileForm = popupEditProfile.querySelector('.popup-form');
+const profileForm = popupEditProfile.querySelector(".popup-form");
 const nameInput = popupEditProfile.querySelector('input[name="name"]');
 const nameText = document.querySelector(".profile__name");
 const specialityInput = popupEditProfile.querySelector(
@@ -30,15 +33,15 @@ const locationTemplate = document
   .content.querySelector(".location");
 const addButton = document.querySelector(".profile__add-button");
 const popupAddCard = document.querySelector("#popup-add-card");
-const addCardForm = popupAddCard.querySelector('.popup-form');
+const addCardForm = popupAddCard.querySelector(".popup-form");
 const imageTitleInput = popupAddCard.querySelector('input[name="image-title"]');
 const imageLinkInput = popupAddCard.querySelector('input[name="image-link"]');
 
 // отображение popup-ов
 const showPopup = (popupName) => {
   popupName.classList.add("popup_opened");
-  document.addEventListener('keydown', closePopupByEscape);
-}
+  document.addEventListener("keydown", closePopupByEscape);
+};
 
 const showPopupEditProfile = () => {
   showPopup(popupEditProfile);
@@ -58,27 +61,26 @@ addButton.addEventListener("click", showPopupAddCard);
 // закрытие popup-ов
 const closePopup = (popupName) => {
   popupName.classList.remove("popup_opened");
-  document.removeEventListener('keydown', closePopupByEscape);
-}
+  document.removeEventListener("keydown", closePopupByEscape);
+};
 
 const closePopupByEscape = (evt) => {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
     closePopup(openedPopup);
   }
 };
 
 popups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-      if (evt.target.classList.contains('popup_opened')) {
-          closePopup(popup)
-      }
-      if (evt.target.classList.contains('popup__close-button')) {
-        closePopup(popup)
-      }
-  })
-})
-
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("popup_opened")) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains("popup__close-button")) {
+      closePopup(popup);
+    }
+  });
+});
 
 // редактирование профиля
 const handleProfileFormSubmit = (evt) => {
@@ -123,45 +125,28 @@ const popupBigImage = document.querySelector("#popup-big-image");
 const bigImage = document.querySelector(".popup-big-image__image");
 const textImage = document.querySelector(".popup-big-image__text");
 
-const handleImageClick = (evt) => {
+const handleImageClick = (card) => {
   showPopup(popupBigImage);
-  textImage.textContent = evt.target.alt;
-  bigImage.src = evt.target.src;
-  bigImage.alt = evt.target.alt;
-};
-
-// создание новых карточек
-const createCard = (name, link) => {
-  const locationCard = locationTemplate.cloneNode(true);
-  const likeButton = locationCard.querySelector(".location__like-button");
-  const trashButton = locationCard.querySelector(".location__trash-button");
-  const locationImage = locationCard.querySelector(".location__image");
-
-  locationImage.src = link;
-  locationImage.alt = name;
-  locationCard.querySelector(".location__name").textContent = name;
-
-  locationImage.addEventListener("click", handleImageClick);
-  trashButton.addEventListener("click", () => locationCard.remove());
-  likeButton.addEventListener("click", () =>
-    likeButton.classList.toggle("location__like-button_active")
-  );
-
-  return locationCard;
-};
-
-const addCard = (name, link) => {
-  const locationCard = createCard(name, link);
-  locations.prepend(locationCard);
+  textImage.textContent = card.title;
+  bigImage.src = card.link;
+  bigImage.alt = card.title;
 };
 
 // добавление начальных карточек
 
 initialCards.forEach((item) => {
-  addCard(item.name, item.link);
+  const card = new Card(item.name, item.link, 'location');
+
+  locations.append(card.generateCard());
 });
 
-// добавление новых карточек
+// создание новых карточек
+
+const addCard = (name, link) => {
+  const card =  new Card(name, link, 'location');
+  locations.prepend(card.generateCard());
+};
+
 const handleAddCardSubmit = (evt) => {
   evt.preventDefault();
   addCard(imageTitleInput.value, imageLinkInput.value);
