@@ -1,15 +1,5 @@
-import {Card} from './card.js';
-// import {qwer} from './FormValidator.js';
-
-// валидация
-enableValidation({
-  formSelector: ".popup-form",
-  inputSelector: ".popup-form__text-form",
-  submitButtonSelector: ".popup-form__save-button",
-  activeButtonClass: "popup-form__save-button_active",
-  inputErrorClass: "popup-form__text-form_error",
-  errorClass: "popup-form__error-message_active",
-});
+import { Card } from "./card.js";
+import { FormValidator } from "./FormValidator.js";
 
 // константа списка попапов
 const popups = document.querySelectorAll(".popup");
@@ -135,7 +125,7 @@ const handleImageClick = (card) => {
 // добавление начальных карточек
 
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, 'location');
+  const card = new Card(item.name, item.link, "location");
 
   locations.append(card.generateCard());
 });
@@ -143,7 +133,7 @@ initialCards.forEach((item) => {
 // создание новых карточек
 
 const addCard = (name, link) => {
-  const card =  new Card(name, link, 'location');
+  const card = new Card(name, link, "location");
   locations.prepend(card.generateCard());
 };
 
@@ -155,3 +145,25 @@ const handleAddCardSubmit = (evt) => {
 };
 
 popupAddCard.addEventListener("submit", handleAddCardSubmit);
+
+// настройка валидации
+const argsValidation = {
+  formSelector: ".popup-form",
+  inputSelector: ".popup-form__text-form",
+  submitButtonSelector: ".popup-form__save-button",
+  activeButtonClass: "popup-form__save-button_active",
+  inputErrorClass: "popup-form__text-form_error",
+  errorClass: "popup-form__error-message_active",
+};
+
+// валидация форм
+
+const enableValidation = (args) => {
+  const formList = Array.from(document.querySelectorAll(args.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(args, formElement);
+    validator.enableValidation();
+  });
+};
+
+enableValidation(argsValidation);
