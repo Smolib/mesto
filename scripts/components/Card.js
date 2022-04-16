@@ -1,9 +1,8 @@
-import { openPopupImage } from "./index.js";
-
 class Card {
-  constructor(name, link, selector) {
+  constructor(name, link, selector, handleCardClick) {
     this._name = name;
     this._link = link;
+    this._handleCardClick = handleCardClick;
 
     this._element = this._getTemplate(selector);
   }
@@ -22,7 +21,7 @@ class Card {
   }
 
   _handleImageClick() {
-    openPopupImage(this);
+    this._handleCardClick(this);
   }
 
   _handleTrashButton() {

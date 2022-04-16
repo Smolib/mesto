@@ -1,0 +1,23 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Третий учебный проект во время обучения в Яндекс.Практикуме.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smolib/mesto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Smolib/mesto/issues"
+  },
+  "homepage": "https://github.com/Smolib/mesto#readme",
+  "devDependencies": {
+    "webpack": "^5.72.0"
+  }
+}
