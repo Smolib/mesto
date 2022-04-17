@@ -21,36 +21,53 @@ const popupEditProfile = new PopupWithForm('#popup-edit-profile', ({name, specia
   userInfo.setUserInfo({name, speciality});
 });
 
-// обработчики событий на кнопках
-const editButton = document.querySelector(".profile__edit-button");
-const addButton = document.querySelector(".profile__add-button");
-
-editButton.addEventListener("click", () =>{
-  popupEditProfile.setInputValues(userInfo.getUserInfo());
-  popupEditProfile.open();
-});
-addButton.addEventListener("click", ()=>popupAddCard.open());
-
-// добавление начальных карточек
-
-const defaultCardList = new Section ({
-  items: initialCards,
-  renderer: (item) => {
-    const card = new Card(item.name, item.link, "#location", popupBigImage.open.bind(popupBigImage));
-    return card.generateCard();
-  }
-}, '.locations');
-
-defaultCardList.renderItems();
-
 // валидация форм
+
+const formValidators = {}
 
 const setValidators = (args) => {
   const formList = Array.from(document.querySelectorAll(args.formSelector));
   formList.forEach((formElement) => {
     const validator = new FormValidator(args, formElement);
+    const formName = formElement.getAttribute('name');
+
+    formValidators[formName] = validator;
+
     validator.enableValidation();
   });
 };
 
 setValidators(argsValidation);
+
+// обработчики событий на кнопках
+
+const editButton = document.querySelector(".profile__edit-button");
+const addButton = document.querySelector(".profile__add-button");
+
+editButton.addEventListener("click", () =>{
+  popupEditProfile.setInputValues(userInfo.getUserInfo());
+
+  formValidators['profile-form'].updateValidity();
+  popupEditProfile.open();
+});
+
+addButton.addEventListener("click", () => {
+  formValidators['card-form'].updateValidity();
+  popupAddCard.open();
+  }
+);
+
+// добавление начальных карточек
+const createCard = (item) => {
+  const card = new Card(item.name, item.link, "#location", popupBigImage.open.bind(popupBigImage));
+  return card.generateCard();
+}
+
+const defaultCardList = new Section ({
+  items: initialCards,
+  renderer: (item) => {
+    return createCard(item);
+  }
+}, '.locations');
+
+defaultCardList.renderItems();

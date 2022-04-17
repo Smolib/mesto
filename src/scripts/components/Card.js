@@ -48,11 +48,13 @@ class Card {
   }
 
   generateCard() {
-    this._setEventListeners();
+    this._imageElement = this._element.querySelector(".location__image");
 
-    this._element.querySelector(".location__image").src = this._link;
-    this._element.querySelector(".location__image").alt = this._name;
+    this._imageElement.src = this._link;
+    this._imageElement.alt = this._name;
     this._element.querySelector(".location__name").textContent = this._name;
+
+    this._setEventListeners();
 
     return this._element;
   }
