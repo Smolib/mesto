@@ -1,11 +1,12 @@
-import { Card } from "../components/Card.js";
-import { FormValidator } from "../components/FormValidator.js";
-import { initialCards } from "../utils/initialCards.js";
-import { argsValidation } from "../utils/argsValidation.js";
-import { Section } from '../components/Section.js'
-import { PopupWithImage } from '../components/PopupWithImage.js'
-import { PopupWithForm } from "../components/PopupWithForm.js";
-import { UserInfo } from "../components/UserInfo.js";
+import './index.css'
+import { Card } from './scripts/components/Card.js'
+import { FormValidator } from "./scripts/components/FormValidator.js";
+import { initialCards } from "./scripts/utils/initialCards.js";
+import { argsValidation } from "./scripts/utils/argsValidation.js";
+import { Section } from './scripts/components/Section.js'
+import { PopupWithImage } from './scripts/components/PopupWithImage.js'
+import { PopupWithForm } from "./scripts/components/PopupWithForm.js";
+import { UserInfo } from "./scripts/components/UserInfo.js";
 
 // создание popup-ов
 const userInfo = new UserInfo ('.profile__name', '.profile__speciality');

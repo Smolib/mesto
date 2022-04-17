@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Проект Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="root">
     <section id="popup-edit-profile" class="popup popup_closed">
@@ -49,7 +48,7 @@
       </header>
       <main class="main">
         <section class="profile">
-          <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар путешественника">
+          <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар путешественника">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button type="button" class="profile__edit-button"></button>
@@ -74,6 +73,5 @@
         <button class="location__trash-button"></button>
       </article>
     </template>
-    <script type="module" src="scripts/pages/index.js"></script>
   </body>
 </html>
