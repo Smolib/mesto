@@ -1,6 +1,7 @@
 .location__name-area {
   display: flex;
   justify-content: space-between;
-  padding: 23px 20px;
-  align-items: center;
+  padding: 20px;
+  min-height: 36px;
+  align-items: stretch;
 }

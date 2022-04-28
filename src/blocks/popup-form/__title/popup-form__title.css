@@ -2,12 +2,11 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 1.21;
-  margin: 0 0 54px;
+  margin: 0;
 }
 
 @media screen and (max-width: 700px) {
   .popup-form__title {
     font-size: 18px;
-    margin-bottom: 50px;
   }
 }

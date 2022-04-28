@@ -18,7 +18,9 @@
 @import url(./blocks/location/__image/location__image.css);
 @import url(./blocks/location/__name-area/location__name-area.css);
 @import url(./blocks/location/__name/location__name.css);
+@import url(./blocks/location/__like-area/location__like-area.css);
 @import url(./blocks/location/__like-button/location__like-button.css);
+@import url(./blocks/location/__like-value/location__like-value.css);
 @import url(./blocks/location/__like-button/_active/location__like-button_active.css);
 @import url(./blocks/location/__trash-button/location__trash-button.css);
 @import url(./blocks/footer/footer.css);
