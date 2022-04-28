@@ -7,7 +7,7 @@
 .header__line{border-top:1px solid #545454;height:0;margin:0;opacity:.7;padding:0}
 .main{align-items:center;box-sizing:border-box;display:flex;flex-direction:column;width:100%}
 .profile{align-items:center;display:grid;gap:30px;grid-template-areas:"avatar info add-button";grid-template-columns:120px minmax(150px,auto) minmax(150px,2fr);justify-items:center;margin-top:37px;position:relative;width:100%}@media screen and (max-width:600px){.profile{display:flex;flex-direction:column;gap:0}}
-.profile__avatar{border-radius:100%;grid-area:avatar;height:120px;-o-object-fit:contain;object-fit:contain;width:120px}
+.profile__avatar{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:100%;grid-area:avatar;height:120px;position:relative;width:120px}.profile__avatar:hover:before{background:rgba(0,0,0,.8);background-image:url(686ec1de24fcfb5046fa.svg);background-position:50%;background-repeat:no-repeat;background-size:26px;content:"";cursor:pointer;height:100%;position:absolute;width:100%}
 .profile__info{display:grid;gap:8px 18px;grid-area:info;grid-template-areas:"name edit-button" "speciality speciality";grid-template-columns:1fr 24px;width:100%}@media screen and (max-width:600px){.profile__info{gap:7px 0;grid-template-columns:auto minmax(10px,auto);margin:28.25px auto 34px;position:relative}}
 .profile__name{color:#fff;font-size:42px;font-weight:500;grid-area:name;line-height:calc(1em + 6px);margin:0;overflow:hidden;position:relative;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:600px){.profile__name{font-size:8.4375vw;left:18px;text-align:right}}@media screen and (max-width:320px){.profile__name{font-size:27px}}
 .profile__speciality{color:#fff;font-size:18px;font-weight:400;grid-area:speciality;line-height:calc(1em + 3px);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:600px){.profile__speciality{font-size:4.375vw;text-align:center}}@media screen and (max-width:320px){.profile__speciality{font-size:14px}}
@@ -16,9 +16,9 @@
 .locations{align-items:center;display:flex;flex-wrap:wrap;gap:21px 17px;justify-content:center;margin-top:52px}@media screen and (max-width:600px){.locations{margin-top:36px}}
 .location{background-color:#fff;border-radius:10px;overflow:hidden;position:relative;width:282px}
 .location__image{height:282px;min-height:282px;-o-object-fit:cover;object-fit:cover;width:282px}
-.location__name-area{align-items:center;display:flex;justify-content:space-between;min-height:40px;padding:20px}
-.location__name{font-size:24px;font-weight:900;line-height:1.21;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.location__like-area{flex-direction:column}
+.location__name-area{align-items:stretch;display:flex;justify-content:space-between;min-height:36px;padding:20px}
+.location__name{font-size:24px;font-weight:900;line-height:36px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.location__like-area{display:flex;flex-direction:column}
 .location__like-button{background:transparent;border:0;cursor:pointer;height:19px;position:relative;width:22px}.location__like-button:before{background-image:url(77ea1611be45fdeca1cc.svg);background-size:cover;bottom:0;content:"";height:19px;left:0;margin:auto;position:absolute;right:0;top:0;width:22px}.location__like-button:hover.location__like-button:before{opacity:.5}
 .location__like-value{display:block;font-size:13px;line-height:16px;text-align:center}
 .location__like-button_active.location__like-button:before{background-image:url(08af6fbb37d19d4aa333.svg);content:""}
@@ -31,8 +31,8 @@
 .popup__container{position:relative}
 .popup__close-button{background:transparent;border:none;cursor:pointer;height:32px;position:absolute;right:-20px;top:-40px;width:32px}.popup__close-button:before{background-image:url(58aaf1081fb73be79fc3.svg);background-size:cover;bottom:0;content:"";height:100%;left:0;margin:auto;position:absolute;right:0;top:0;width:100%}.popup__close-button:hover.popup__close-button:before{opacity:.6}@media screen and (max-width:700px){.popup__close-button{height:20px;right:20px;width:20px}}
 .popup-form{background-color:#fff;border-radius:10px;box-sizing:border-box;display:flex;flex-direction:column;margin:0 20px;padding:36px;position:relative;width:430px;z-index:11}@media screen and (max-width:700px){.popup-form{gap:11px;max-width:282px;padding:25px 22px}}
-.popup-form__title{font-size:24px;font-weight:900;line-height:1.21;margin:0 0 54px}@media screen and (max-width:700px){.popup-form__title{font-size:18px;margin-bottom:50px}}
-.popup-form__text-form{border:none;border-bottom:1px solid rgba(0,0,0,.2);color:#000;font-size:14px;font-weight:400;line-height:1.21;padding:13px 0 13px 2px}.popup-form__text-form::-moz-placeholder{color:#000;font-size:14px;font-weight:400;line-height:1.21;opacity:.6;padding-left:2px}.popup-form__text-form:-ms-input-placeholder{color:#000;font-size:14px;font-weight:400;line-height:1.21;opacity:.6;padding-left:2px}.popup-form__text-form::placeholder{color:#000;font-size:14px;font-weight:400;line-height:1.21;opacity:.6;padding-left:2px}
+.popup-form__title{font-size:24px;font-weight:900;line-height:1.21;margin:0}@media screen and (max-width:700px){.popup-form__title{font-size:18px}}
+.popup-form__text-form{border:none;border-bottom:1px solid rgba(0,0,0,.2);color:#000;font-size:14px;font-weight:400;line-height:1.21;padding:13px 0 13px 2px}.popup-form__text-form::-moz-placeholder{color:#000;font-size:14px;font-weight:400;line-height:1.21;opacity:.6;padding-left:2px}.popup-form__text-form:-ms-input-placeholder{color:#000;font-size:14px;font-weight:400;line-height:1.21;opacity:.6;padding-left:2px}.popup-form__text-form::placeholder{color:#000;font-size:14px;font-weight:400;line-height:1.21;opacity:.6;padding-left:2px}.popup-form__text-form:first-of-type{margin-top:54px}@media screen and (max-width:700px){.popup-form__text-form:first-of-type{margin-top:50px}}
 .popup-form__text-form_error{border-bottom:1px solid red}
 .popup-form__save-button{background-color:#fff;border:1px solid rgba(0,0,0,.2);font-size:18px;font-weight:400;height:50px;line-height:1.21;margin-top:31px;width:100%}@media screen and (max-width:700px){.popup-form__save-button{font-size:14px;height:46px}}
 .popup-form__save-button_active{background-color:#000;color:#fff;cursor:pointer}.popup-form__save-button_active:hover{opacity:.8}
