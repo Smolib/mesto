@@ -1,18 +1,20 @@
 import { PopupWithForm } from "./PopupWithForm.js";
 
 class PopupWithConfirmation extends PopupWithForm {
+
+   constructor(selector) {
+    super(selector, ()=>this._onSubmit());
+  }
+
+  _onSubmit () {
+    return this._submitCallbackConfirmation()
+  }
+
   open(callback) {
-    this._submitCallback = callback;
+    this._submitCallbackConfirmation = callback;
     super.open();
   }
 
-  setEventListeners() {
-    super.setEventListeners();
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._submitCallback();
-    });
-  }
 }
 
 export { PopupWithConfirmation };

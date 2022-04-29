@@ -8,9 +8,9 @@ class PopupWithForm extends Popup {
     this._submitButtonInitialText = this._submitButton.textContent;
   }
 
-  getSubmitButton() {
-    return this._submitButton;
-  }
+  // getSubmitButton() {
+  //   return this._submitButton;
+  // }
 
   _getInputValues() {
     this._formValues = {};

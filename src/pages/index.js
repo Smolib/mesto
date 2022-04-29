@@ -139,10 +139,7 @@ const popupEditAvatar = new PopupWithForm(
   }
 );
 
-const popupDeleteCard = new PopupWithConfirmation(
-  "#popup-delete-card",
-  () => {}
-);
+const popupDeleteCard = new PopupWithConfirmation("#popup-delete-card");
 
 const popupEditProfile = new PopupWithForm(
   "#popup-edit-profile",
