@@ -1,6 +1,6 @@
-import { Popup } from "./Popup.js";
+import { PopupWithForm } from "./PopupWithForm.js";
 
-class PopupWithConfirmation extends Popup {
+class PopupWithConfirmation extends PopupWithForm {
   open(callback) {
     this._submitCallback = callback;
     super.open();
@@ -11,7 +11,6 @@ class PopupWithConfirmation extends Popup {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._submitCallback();
-      this.close();
     });
   }
 }

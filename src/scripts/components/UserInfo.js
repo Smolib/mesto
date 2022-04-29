@@ -12,7 +12,7 @@ class UserInfo {
     };
   }
 
-  setUserInfo({ name, speciality, avatar }) {
+  setUserInfo({ name, speciality, avatar, _id }) {
     if (name) {
       this._nameArea.textContent = name;
     }
@@ -22,6 +22,12 @@ class UserInfo {
     if (avatar) {
       this._avatarArea.style["background-image"] = `url('${avatar}')`;
     }
+    if (_id) {
+      this._id = _id
+    }
+  }
+  getUserId() {
+    return this._id;
   }
 }
 

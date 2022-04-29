@@ -74,7 +74,7 @@ class FormValidator {
 
   updateValidity() {
     this._inputList.forEach((inputElement) => this._hideError(inputElement));
-    this._toggleButtonState(this._inputList, this._buttonElement);
+    this._toggleButtonState();
   }
 
   enableValidation() {

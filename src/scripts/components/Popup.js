@@ -2,12 +2,6 @@ class Popup {
   constructor(selector) {
     this._popup = document.querySelector(selector);
     this._handleEscCloseCallback = this._handleEscClose.bind(this);
-    this._bigImage = this._popup.querySelector(".popup-big-image__image");
-    this._textImage = this._popup.querySelector(".popup-big-image__text");
-    this._form = this._popup.querySelector(".popup-form");
-    this._inputList = this._popup.querySelectorAll(".popup-form__text-form");
-    this._submitButton = this._popup.querySelector(".popup-form__save-button");
-
     this.setEventListeners();
   }
 
@@ -19,10 +13,6 @@ class Popup {
   close() {
     this._popup.classList.remove("popup_opened");
     document.removeEventListener("keydown", this._handleEscCloseCallback);
-  }
-
-  getSubmitButton() {
-    return this._submitButton;
   }
 
   _handleEscClose(evt) {

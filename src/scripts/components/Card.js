@@ -20,6 +20,10 @@ class Card {
     this._handleLikeClick = handleLikeClick;
 
     this._element = this._getTemplate(selector);
+    this._locationImage = this._element.querySelector(".location__image");
+    this._likeButton = this._element.querySelector(".location__like-button");
+    this._trashButton = this._element.querySelector(".location__trash-button");
+    this._elementLikesValue = this._element.querySelector(".location__like-value");
   }
 
   getLikedByMe() {
@@ -38,7 +42,7 @@ class Card {
   }
 
   _handleLikeButton() {
-    this._handleLikeClick();
+    this._handleLikeClick(this);
   }
 
   _handleImageClick() {
@@ -50,19 +54,16 @@ class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".location__like-button")
+    this._likeButton
       .addEventListener("click", () => {
         this._handleLikeButton();
       });
-    this._element
-      .querySelector(".location__image")
+      this._locationImage
       .addEventListener("click", () => {
         this._handleImageClick();
       });
-    const trashButton = this._element.querySelector(".location__trash-button");
-    if (trashButton) {
-      trashButton.addEventListener("click", () => {
+    if (this._trashButton) {
+      this._trashButton.addEventListener("click", () => {
         this._handleTrashButton();
       });
     }
@@ -70,42 +71,35 @@ class Card {
 
   deleteSelf() {
     this._element.remove();
-    this._element = null;
   }
 
   updateLikes(likes, likedByMe) {
     const likesValue = likes.length;
-    const elementLikesValue = this._element.querySelector(
-      ".location__like-value"
-    );
     this._likedByMe = likedByMe;
 
     if (likedByMe) {
-      this._element
-        .querySelector(".location__like-button")
+      this._likeButton
         .classList.add("location__like-button_active");
     } else {
-      this._element
-        .querySelector(".location__like-button")
+      this._likeButton
         .classList.remove("location__like-button_active");
     }
 
     if (likesValue) {
-      elementLikesValue.textContent = likesValue;
-    } else elementLikesValue.textContent = "";
+      this._elementLikesValue.textContent = likesValue;
+    } else this._elementLikesValue.textContent = "";
   }
 
   generateCard() {
-    this._imageElement = this._element.querySelector(".location__image");
 
     this.updateLikes(this._likes, this._likedByMe);
 
     if (!this._deletable) {
-      this._element.querySelector(".location__trash-button").remove();
+      this._trashButton.remove();
     }
 
-    this._imageElement.src = this._link;
-    this._imageElement.alt = this._name;
+    this._locationImage.src = this._link;
+    this._locationImage.alt = this._name;
     this._element.querySelector(".location__name").textContent = this._name;
 
     this._setEventListeners();
